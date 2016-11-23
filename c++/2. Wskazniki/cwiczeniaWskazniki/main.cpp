@@ -1,15 +1,25 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
-void losuj(int pierwszy, int ostatni){
+void losuj(int pierwszy){
     int index=0;
     srand(time(0));
-    for(int i=0;i<10;i++){
+    for(int i=0;i<9;i++){
         //tu musze przez wskaźnik odwołać się do kolejnych komórek w pamięci
-        pierwszy+index=rand();
+        pierwszy=rand();
+        pierwszy+=index;
         index+=4;
     }
 }
+void wypisz(int pierwszy){
+    int index=0;
+    for(int i=0; i<9; i++){
+        cout<<pierwszy<<endl;
+        pierwszy+=index;
+        index+=4;
+    }
+}
+
 
 int main(){
     /*
@@ -21,9 +31,10 @@ int main(){
     cout<<*pocz<<" "<<*kon<<endl;//<- a tu powinna być wartość ALE NIE MA hue
 */
     int tab[10];
-    int *pocz=&tab[0], *koniec=&tab[9];
+    int *pocz=&tab[0];
     int *temp=&tab[1];
     cout<<"index 0 = "<<pocz<<" index 1 = "<<temp;
-    losuj(*pocz,*koniec);
+    losuj(*pocz);
+    wypisz(*pocz);
     return 0;
 }
