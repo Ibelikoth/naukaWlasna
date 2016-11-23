@@ -128,6 +128,5 @@ int main()
     double *pd = nullptr;
     Link<Record>*lst = nullptr;//wskaźnik do łącza rekordu
     int x = nullptr;//error nullptr jest wskaznikiem a nie liczba*/
-
     return 0;
 }
